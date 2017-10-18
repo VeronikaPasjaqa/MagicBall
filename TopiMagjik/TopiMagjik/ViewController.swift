@@ -29,10 +29,21 @@ class ViewController: UIViewController {
 
 
     @IBAction func playButton(_ sender: Any) {
+    luajLojen()
+      
+    }
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake{
+           luajLojen()
+            
+        }
+        
+        
+    }
+    func luajLojen(){
         var random = fotot[Int(arc4random_uniform(UInt32(fotot.count)))]
         audioPlayer = try!AVAudioPlayer(contentsOf: audioFile!)
         audioPlayer.play()
-        topi1.image = UIImage.init(named: random)
-    }
+        topi1.image = UIImage.init(named: random)    }
 }
 
